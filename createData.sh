@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#wget http://www.latl.unige.ch/swissadmin/swissadmin_aligned_2014_05_26.zip
-#unzip swissadmin_aligned_2014_05_26.zip
+wget http://www.latl.unige.ch/swissadmin/swissadmin_aligned_2014_05_26.zip
+unzip swissadmin_aligned_2014_05_26.zip
 
 #en-fr test data
 paste -d'|' <(tail -1320 fr-en/2013fr.txt) <(tail -1320 fr-en/2013en.txt) | awk -F'|' '{split($1,fr," ");split($2,en," "); if(length(en) < 200 && length(fr) < 200)print}' | cut -d'|' -f1 >swissadmin.en-fr.test.fr
